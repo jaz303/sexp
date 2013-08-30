@@ -1,5 +1,5 @@
 var SPACE   = /[ \r\n\t]/;
-var ATOM    = /[^\(\)\r\n\t ]/;
+var ATOM    = /[^\(\)'"\r\n\t ]/;
 var NUMBER  = /^-?\d+(?:\.\d+)?$/
 
 function sexp(source) {
@@ -17,6 +17,16 @@ function sexp(source) {
         } else {
             return atom;
         }
+    }
+
+    function parseString(quote) {
+        var start = ++ix;
+        while (ix < len && source[ix] !== quote)
+            ix++;
+        if (ix === len)
+            throw new Error("parse error - unterminated string");
+        ix++;
+        return source.substring(start, ix - 1);
     }
 
     function parseSexp() {
@@ -38,6 +48,8 @@ function sexp(source) {
                 return items;
             } else if (ch === '(') {
                 items.push(parseSexp());
+            } else if (ch === '"' || ch === '\'') {
+                items.push(parseString(ch));
             } else if (SPACE.test(ch)) {
                 ix++;
             } else {
