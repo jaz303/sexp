@@ -22,4 +22,4 @@ Into this:
 
 ## Limitations
 
-    * Doesn't recognise escape sequences inside strings
+  * Doesn't recognise escape sequences inside strings
