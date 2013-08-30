@@ -1,6 +1,6 @@
-var SPACE   = /[ \r\n\t]/;
-var ATOM    = /[^\(\)'"\r\n\t ]/;
-var NUMBER  = /^-?\d+(?:\.\d+)?$/
+var SPACE   = /[ \r\n\t]/,
+    ATOM    = /[^\(\)'"\r\n\t ]/,
+    NUMBER  = /^-?\d+(?:\.\d+)?$/;
 
 function sexp(source) {
 
@@ -20,13 +20,13 @@ function sexp(source) {
     }
 
     function parseString(quote) {
-        var start = ++ix;
+        var start = ix++;
         while (ix < len && source[ix] !== quote)
             ix++;
         if (ix === len)
             throw new Error("parse error - unterminated string");
         ix++;
-        return source.substring(start, ix - 1);
+        return source.substring(start + 1, ix - 1);
     }
 
     function parseSexp() {
