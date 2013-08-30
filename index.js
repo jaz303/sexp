@@ -1,5 +1,6 @@
 var SPACE   = /[ \r\n\t]/;
 var ATOM    = /[^\(\)\r\n\t ]/;
+var NUMBER  = /^-?\d+(?:\.\d+)?$/
 
 function sexp(source) {
 
@@ -10,7 +11,12 @@ function sexp(source) {
         var start = ix++;
         while (ATOM.test(source[ix]))
             ix++;
-        return source.substring(start, ix);
+        var atom = source.substring(start, ix);
+        if (NUMBER.test(atom)) {
+            return parseFloat(atom);
+        } else {
+            return atom;
+        }
     }
 
     function parseSexp() {
