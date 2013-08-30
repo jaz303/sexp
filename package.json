@@ -1,6 +1,6 @@
 {
   "name": "sexp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "sexp -> array parser",
   "main": "index.js",
   "scripts": {
