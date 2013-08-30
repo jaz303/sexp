@@ -1,0 +1,19 @@
+{
+  "name": "sexp",
+  "version": "0.0.0",
+  "description": "sexp -> array parser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "sexp",
+    "parser"
+  ],
+  "author": "Jason Frame <jason@onehackoranother.com> (http://jasonframe.co.uk)",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "~1.0.4"
+  }
+}
