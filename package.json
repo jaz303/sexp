@@ -4,12 +4,14 @@
   "description": "sexp -> array parser",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "set -e; for t in test/*.js; do node $t; done"
   },
   "repository": "",
   "keywords": [
     "sexp",
-    "parser"
+    "parser",
+    "s-expression",
+    "lisp"
   ],
   "author": "Jason Frame <jason@onehackoranother.com> (http://jasonframe.co.uk)",
   "license": "MIT",
