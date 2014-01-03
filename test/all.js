@@ -35,9 +35,7 @@ test("translation", function(assert) {
         translateNumber: function() { return 'number'; }
     });
 
-    assert.ok(output[0] === 'string');
-    assert.ok(output[1] === 'symbol');
-    assert.ok(output[2] === 'number');
+    assert.deepEqual(['string', 'symbol', 'number'], output);
     assert.end();
 
 });
