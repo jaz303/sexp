@@ -3,12 +3,12 @@ var sexp = require('../');
 
 test("parsing", function(assert) {
 
-    var input = "(foo bar 1 2 3 (('a string' \"another string\")) + - splat)";
+    var input = "(foo bar 1.5 2 3 (('a string' \"another string\")) + - splat)";
     
     var output = [
         'foo',
         'bar',
-        1,
+        1.5,
         2,
         3,
         [
