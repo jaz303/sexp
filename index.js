@@ -6,9 +6,9 @@ function sexp(source, opts) {
 
     opts = opts || {};
 
-    var tSymbol = opts.translateSymbol || function(sym) { return sym; }
-    var tString = opts.translateString || function(str) { return str; }
-    var tNumber = opts.translateNumber || function(num) { return parseFloat(num); }
+    var tSymbol = opts.translateSymbol || function(sym) { return sym; },
+        tString = opts.translateString || function(str) { return str; },
+        tNumber = opts.translateNumber || parseFloat;
 
     var ix  = 0,
         len = source.length;
