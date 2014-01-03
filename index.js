@@ -2,7 +2,13 @@ var SPACE   = /[ \r\n\t]/,
     ATOM    = /[^\(\)'"\r\n\t ]/,
     NUMBER  = /^-?\d+(?:\.\d+)?$/;
 
-function sexp(source) {
+function sexp(source, opts) {
+
+    opts = opts || {};
+
+    var tSymbol = opts.translateSymbol || function(sym) { return sym; }
+    var tString = opts.translateString || function(str) { return str; }
+    var tNumber = opts.translateNumber || function(num) { return parseFloat(num); }
 
     var ix  = 0,
         len = source.length;
@@ -13,9 +19,9 @@ function sexp(source) {
             ix++;
         var atom = source.substring(start, ix);
         if (NUMBER.test(atom)) {
-            return parseFloat(atom);
+            return tNumber(atom);
         } else {
-            return atom;
+            return tSymbol(atom);
         }
     }
 
@@ -26,7 +32,7 @@ function sexp(source) {
         if (ix === len)
             throw new Error("parse error - unterminated string");
         ix++;
-        return source.substring(start + 1, ix - 1);
+        return tString(source.substring(start + 1, ix - 1));
     }
 
     function parseSexp() {
