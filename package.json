@@ -17,5 +17,8 @@
   "license": "MIT",
   "devDependencies": {
     "tape": "~1.0.4"
+  },
+  "dependencies": {
+    "sexp-tokenizer": "~0.1.0"
   }
 }
