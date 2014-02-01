@@ -1,6 +1,6 @@
 {
   "name": "sexp",
-  "version": "0.2.0",
+  "version": "0.1.4",
   "description": "sexp -> array parser",
   "main": "index.js",
   "scripts": {
@@ -17,8 +17,5 @@
   "license": "MIT",
   "devDependencies": {
     "tape": "~1.0.4"
-  },
-  "dependencies": {
-    "sexp-tokenizer": "~0.1.0"
   }
 }
